@@ -11,6 +11,9 @@ pub struct ListRequest {
     /// Optional relation-picker field overrides, using the same normalized values.
     pub search_fields: Option<Vec<String>>,
     pub display_field: Option<String>,
+    /// Optional table projection. Search, labels, filters and sort fields are
+    /// retained automatically; omitted means return all visible fields.
+    pub fields: Option<BTreeSet<String>>,
     pub label_view: String,
     pub category: Vec<String>,
     pub sort: String,
@@ -142,6 +145,15 @@ impl Editor {
     ) -> Result<ListPage> {
         self.require_operation(name, "read")?;
         let matcher = self.search_matcher(&request.query, request.search_options)?;
+        let preparation = self
+            .read_cache
+            .preparation
+            .lock()
+            .unwrap()
+            .entry((name.to_owned(), request.ids.is_some()))
+            .or_default()
+            .clone();
+        let _preparing = preparation.lock().unwrap();
         let signature = self.list_signature(name, request.ids.as_ref())?;
         let mut query = request.clone();
         query.offset = 0;
@@ -213,12 +225,38 @@ impl Editor {
             }
         }
 
+        let raw_selected = request.fields.as_ref().map(|fields| {
+            let mut fields = fields.clone();
+            fields.extend(facet_fields.iter().cloned());
+            fields.extend(c.categories.iter().map(|category| category.field.clone()));
+            fields.insert(request.sort.clone());
+            // Manual ordering and row actions need the metadata value.
+            fields.insert("_editor".into());
+            fields
+                .into_iter()
+                .map(|field| field.split('.').next().unwrap_or("").to_owned())
+                .collect::<BTreeSet<_>>()
+        });
+        let selected = raw_selected.as_ref().map(|fields| {
+            let mut fields = fields.clone();
+            fields.extend(
+                request
+                    .search_fields
+                    .as_ref()
+                    .unwrap_or(&c.search)
+                    .iter()
+                    .map(|field| field.split('.').next().unwrap_or("").to_owned()),
+            );
+            fields
+        });
         let prepared_key = serde_json::to_string(&(
             name,
             &request.ids,
             &request.search_fields,
             &request.display_field,
             &request.label_view,
+            &selected,
+            &raw_selected,
         ))
         .map_err(|e| Error::Data(e.to_string()))?;
         let previous = self
@@ -266,6 +304,166 @@ impl Editor {
             for path in &source_changes {
                 prepared.path_ids.remove(*path);
             }
+            let has_derived = c.schema_value["properties"]
+                .as_object()
+                .is_some_and(|props| {
+                    props
+                        .values()
+                        .any(|schema| schema.get("x-derived").is_some())
+                });
+            let has_relations = props
+                .values()
+                .any(|schema| schema.get("x-relation").is_some());
+            let display_fields: Vec<_> = props
+                .iter()
+                .filter(|(key, _)| {
+                    visible(key) && selected.as_ref().is_none_or(|fields| fields.contains(*key))
+                })
+                .collect();
+            let build = |path: &Path,
+                         relations: &mut HashMap<(String, String), String>|
+             -> Result<PreparedEntry> {
+                let doc = self.cached_document(name, path)?;
+                let id = doc.id.clone();
+                if request.ids.as_ref().is_some_and(|ids| !ids.contains(&id)) {
+                    return Ok(PreparedEntry {
+                        id: None,
+                        row: None,
+                        dependencies: BTreeSet::new(),
+                    });
+                }
+                let projected = if has_derived {
+                    self.projected_value(name, &doc.value)?
+                } else {
+                    std::borrow::Cow::Borrowed(&doc.value)
+                };
+                let label = if let Some(display) = &request.display_field {
+                    display_label(&projected, c, display, &id)
+                } else {
+                    self.label_projected(
+                        name,
+                        &projected,
+                        &id,
+                        if request.label_view.is_empty() {
+                            "list"
+                        } else {
+                            &request.label_view
+                        },
+                    )?
+                };
+                let mut display = BTreeMap::new();
+                for &(key, schema) in &display_fields {
+                    if let Some(v) = projected.get(key) {
+                        let mut text = if schema["x-children"] == true {
+                            v.as_array().map(|a| a.len()).unwrap_or(0).to_string()
+                        } else {
+                            field_display(v, schema)
+                        };
+                        if let (Some(target), Some(id)) = (
+                            schema
+                                .pointer("/x-relation/collection")
+                                .and_then(Value::as_str),
+                            v.as_str(),
+                        ) {
+                            text = relations
+                                .entry((target.to_owned(), id.to_owned()))
+                                .or_insert_with(|| {
+                                    self.get(target, id)
+                                        .ok()
+                                        .and_then(|doc| {
+                                            self.label(target, &doc.value, id, "reference").ok()
+                                        })
+                                        .unwrap_or_else(|| id.into())
+                                })
+                                .clone();
+                        }
+                        display.insert(key.clone(), text);
+                    }
+                }
+                for key in request.search_fields.as_ref().unwrap_or(&c.search) {
+                    if !display.contains_key(key) {
+                        if let (Some(v), Some(schema)) =
+                            (field(&projected, key), field_schema(&c.editor_schema, key))
+                        {
+                            display.insert(key.clone(), field_display(v, schema));
+                        }
+                    }
+                }
+                let dependencies = if has_derived || has_relations {
+                    self.list_row_dependencies(c, &doc.value, &projected, &props, &|key| {
+                        visible(key) && selected.as_ref().is_none_or(|fields| fields.contains(key))
+                    })?
+                } else {
+                    BTreeSet::new()
+                };
+                // Search-only fields live in their normalized display form, so
+                // a large text is not retained a second time in the raw row.
+                let value = if let (Some(selected), Some(object)) =
+                    (&raw_selected, projected.as_object())
+                {
+                    Value::Object(
+                        object
+                            .iter()
+                            .filter(|(key, _)| selected.contains(*key))
+                            .map(|(key, value)| (key.clone(), value.clone()))
+                            .collect(),
+                    )
+                } else {
+                    projected.into_owned()
+                };
+                Ok(PreparedEntry {
+                    id: Some(id.clone()),
+                    row: Some(Arc::new(ListRow {
+                        id,
+                        label,
+                        value,
+                        display,
+                        matches: Vec::new(),
+                        highlights: BTreeMap::new(),
+                    })),
+                    dependencies,
+                })
+            };
+            // Only cold, large indexes use workers; small reads and incremental
+            // edits stay on this thread. Preserve source order and bounded concurrency.
+            let mut parallel = if previous.is_none() && signature.source.len() >= 4096 {
+                let paths: Vec<_> = signature
+                    .source
+                    .iter()
+                    .filter(|(_, stamp)| stamp.is_some())
+                    .map(|(path, _)| path)
+                    .collect();
+                let workers = std::thread::available_parallelism()
+                    .map(usize::from)
+                    .unwrap_or(1)
+                    .min(4);
+                let entries =
+                    std::thread::scope(|scope| -> Result<Vec<PreparedEntry>> {
+                        let handles: Vec<_> = paths
+                            .chunks(paths.len().div_ceil(workers).max(1))
+                            .map(|chunk| {
+                                let build = &build;
+                                scope.spawn(move || {
+                                    let mut relations = HashMap::new();
+                                    chunk
+                                        .iter()
+                                        .map(|path| build(path, &mut relations))
+                                        .collect::<Result<Vec<_>>>()
+                                })
+                            })
+                            .collect();
+                        let mut entries = Vec::with_capacity(paths.len());
+                        for handle in handles {
+                            entries.extend(handle.join().map_err(|_| {
+                                Error::Data("list preparation worker failed".into())
+                            })??);
+                        }
+                        Ok(entries)
+                    })?;
+                Some(entries.into_iter())
+            } else {
+                None
+            };
             for (path, current_stamp) in &signature.source {
                 if current_stamp.is_none() {
                     continue;
@@ -293,104 +491,26 @@ impl Editor {
                     );
                     continue;
                 }
-                let doc = self.cached_document(name, &path)?;
-                let id = doc.id.clone();
-                if request.ids.as_ref().is_some_and(|ids| !ids.contains(&id)) {
-                    prepared.by_path.insert(
-                        path.clone(),
-                        PreparedEntry {
-                            id: None,
-                            row: None,
-                            dependencies: BTreeSet::new(),
-                        },
-                    );
-                    continue;
-                }
-                prepared.path_ids.insert(path.clone(), id.clone());
-                let value = self.view_value(name, &doc.value)?;
-                if !ids.insert(id.clone()) {
-                    return Err(Error::Data(format!("duplicate ID {id}")));
-                }
-                let mut display = BTreeMap::new();
-                for (key, schema) in &props {
-                    if !visible(key) {
-                        continue;
-                    }
-                    if let Some(v) = value.get(key) {
-                        let mut text = field_display(v, schema);
-                        if schema["x-children"] == true {
-                            text = v.as_array().map(|a| a.len()).unwrap_or(0).to_string();
-                        }
-                        if let (Some(target), Some(id)) = (
-                            schema
-                                .pointer("/x-relation/collection")
-                                .and_then(Value::as_str),
-                            v.as_str(),
-                        ) {
-                            let k = (target.to_owned(), id.to_owned());
-                            text = relations
-                                .entry(k)
-                                .or_insert_with(|| {
-                                    self.get(target, id)
-                                        .ok()
-                                        .and_then(|d| {
-                                            self.label(target, &d.value, id, "reference").ok()
-                                        })
-                                        .unwrap_or_else(|| id.into())
-                                })
-                                .clone();
-                        }
-                        display.insert(key.clone(), text);
-                    }
-                }
-                // Normalize configured nested search fields and picker overrides once.
-                for key in request.search_fields.as_ref().unwrap_or(&c.search) {
-                    if !display.contains_key(key) {
-                        if let Some(v) = field(&value, key) {
-                            if let Some(schema) = field_schema(&c.editor_schema, key) {
-                                display.insert(key.clone(), field_display(v, schema));
-                            }
-                        }
-                    }
-                }
-                let label = if let Some(display) = &request.display_field {
-                    display_label(&value, c, display, &id)
+                let entry = if let Some(entries) = &mut parallel {
+                    entries.next().expect("one prepared entry per source file")
                 } else {
-                    self.label(
-                        name,
-                        &value,
-                        &id,
-                        if request.label_view.is_empty() {
-                            "list"
-                        } else {
-                            &request.label_view
-                        },
-                    )?
+                    build(path, &mut relations)?
                 };
-                let dependencies =
-                    self.list_row_dependencies(c, &doc.value, &value, &props, &visible)?;
-                for (target, id) in &dependencies {
+                if let Some(id) = &entry.id {
+                    if !ids.insert(id.clone()) {
+                        return Err(Error::Data(format!("duplicate ID {id}")));
+                    }
+                    prepared.path_ids.insert(path.clone(), id.clone());
+                }
+                for (target, id) in &entry.dependencies {
                     if let Ok(path) = self.find_path(target, id) {
                         prepared.path_ids.insert(path, id.clone());
                     }
                 }
-                let row = Arc::new(ListRow {
-                    id,
-                    label,
-                    value,
-                    display,
-                    matches: Vec::new(),
-                    highlights: BTreeMap::new(),
-                });
-                prepared.by_path.insert(
-                    path.clone(),
-                    PreparedEntry {
-                        id: Some(row.id.clone()),
-                        row: Some(row.clone()),
-                        dependencies,
-                    },
-                );
-                prepared.rows.push(row);
+                if let Some(row) = &entry.row {
+                    prepared.rows.push(row.clone());
+                }
+                prepared.by_path.insert(path.clone(), entry);
             }
             for (target, old_files) in previous
                 .as_ref()
@@ -558,8 +678,29 @@ impl Editor {
             if let Some((_, order)) = cache.iter().find(|(key, _)| key == &order_key) {
                 order.clone()
             } else {
+                // ICU collation is comparatively expensive. Compute it once per
+                // row instead of reinterpreting Unicode on every sort comparison.
+                let text_keys: Vec<_> = prepared
+                    .rows
+                    .iter()
+                    .map(|row| {
+                        let text = match request.sort.as_str() {
+                            "_id" => row.id.as_str(),
+                            "" | "_label" | "_manual" => row.label.as_str(),
+                            key => row.display.get(key).map(String::as_str).unwrap_or(""),
+                        };
+                        crate::collation::alphabetic_key(text)
+                    })
+                    .collect();
                 let compare = |a: &usize, b: &usize| {
-                    compare_rows(&prepared.rows[*a], &prepared.rows[*b], request, ui, &props)
+                    compare_rows(
+                        &prepared.rows[*a],
+                        &prepared.rows[*b],
+                        request,
+                        ui,
+                        &props,
+                        text_keys[*a].cmp(&text_keys[*b]),
+                    )
                 };
                 let old_order = previous
                     .as_ref()
@@ -892,10 +1033,11 @@ fn compare_rows(
     request: &ListRequest,
     ui: &Value,
     props: &serde_json::Map<String, Value>,
+    text_order: std::cmp::Ordering,
 ) -> std::cmp::Ordering {
     use std::cmp::Ordering;
     let order = match request.sort.as_str() {
-        "_id" => crate::alphabetic_cmp(&a.id, &b.id),
+        "_id" => text_order,
         "_manual" => {
             let missing =
                 if ui.pointer("/ordering/unordered").and_then(Value::as_str) == Some("first") {
@@ -913,9 +1055,9 @@ fn compare_rows(
                         .and_then(Value::as_i64)
                         .unwrap_or(missing),
                 )
-                .then_with(|| crate::alphabetic_cmp(&a.label, &b.label))
+                .then(text_order)
         }
-        "" | "_label" => crate::alphabetic_cmp(&a.label, &b.label),
+        "" | "_label" => text_order,
         key => match (field(&a.value, key), field(&b.value, key)) {
             (None, None) => Ordering::Equal,
             (None, _) => return Ordering::Greater,
@@ -927,10 +1069,7 @@ fn compare_rows(
                 .as_f64()
                 .partial_cmp(&b.as_f64())
                 .unwrap_or(Ordering::Equal),
-            _ => crate::alphabetic_cmp(
-                a.display.get(key).map(String::as_str).unwrap_or(""),
-                b.display.get(key).map(String::as_str).unwrap_or(""),
-            ),
+            _ => text_order,
         },
     };
     (if request.descending {

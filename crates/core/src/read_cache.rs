@@ -9,8 +9,12 @@ pub(super) struct Stamp {
     identity: (u64, u64, i64, i64),
 }
 pub(super) fn stamp(path: &Path) -> Result<Stamp> {
-    reject_symlink(path)?;
-    let m = fs::metadata(path)?;
+    stamp_metadata(path, &fs::symlink_metadata(path)?)
+}
+pub(super) fn stamp_metadata(path: &Path, m: &fs::Metadata) -> Result<Stamp> {
+    if m.file_type().is_symlink() {
+        return Err(Error::InvalidPath(path.display().to_string()));
+    }
     Ok(Stamp {
         len: m.len(),
         modified: m.modified()?,
@@ -70,6 +74,8 @@ type QueryCache<T> = Mutex<Vec<(ListSignature, String, Arc<T>)>>;
 pub(super) type ReferenceIndex = HashMap<(String, String), Vec<Reference>>;
 #[derive(Default)]
 pub(super) struct ReferenceCache {
+    pub signatures: BTreeMap<String, Signature>,
+    pub documents: Signature,
     pub stamps: HashMap<PathBuf, Stamp>,
     pub contributions: HashMap<PathBuf, BTreeSet<(String, String)>>,
     pub by_target: HashMap<(String, String), BTreeMap<PathBuf, Vec<Reference>>>,
@@ -115,7 +121,9 @@ impl ReferenceCache {
         if let Some(id) = id {
             self.file_ids.insert(path.clone(), id);
         }
-        self.dependencies.insert(path.clone(), dependencies);
+        if !dependencies.is_empty() {
+            self.dependencies.insert(path.clone(), dependencies);
+        }
         self.stamps.insert(path, stamp);
         #[cfg(test)]
         {
@@ -137,6 +145,9 @@ pub(super) struct ReadCache {
     pub lists: QueryCache<super::listing::CachedListPage>,
     pub prepared: QueryCache<super::listing::PreparedList>,
     pub references: Mutex<ReferenceCache>,
+    pub parents: Mutex<ReferenceCache>,
+    // Coalesce cold queries, but let scoped child reads bypass a full list build.
+    pub preparation: Mutex<HashMap<(String, bool), Arc<Mutex<()>>>>,
     #[cfg(test)]
     pub parses: std::sync::atomic::AtomicUsize,
 }
@@ -149,6 +160,8 @@ impl ReadCache {
             lists: Default::default(),
             prepared: Default::default(),
             references: Default::default(),
+            parents: Default::default(),
+            preparation: Default::default(),
             matchers: Default::default(),
             #[cfg(test)]
             parses: Default::default(),
@@ -166,21 +179,27 @@ impl Editor {
         ids: Option<&BTreeSet<String>>,
     ) -> Result<ListSignature> {
         let collection = self.config.collection(name)?;
-        let all = self.collection_signature(name)?;
         let source = if let (IdStrategy::Filename, Some(ids)) = (&collection.id, ids) {
-            for id in ids {
-                safe_name(id)?;
-            }
-            all.iter()
-                .filter(|(path, _)| {
-                    path.file_stem()
-                        .and_then(|s| s.to_str())
-                        .is_some_and(|id| ids.contains(id))
+            let dir = self.config.collection_dir(name)?;
+            let mut paths = ids
+                .iter()
+                .map(|id| {
+                    safe_name(id)?;
+                    let path = dir.join(format!("{id}.{}", extension(collection)));
+                    let current = match stamp(&path) {
+                        Ok(stamp) => Some(stamp),
+                        Err(Error::Io(error)) if error.kind() == std::io::ErrorKind::NotFound => {
+                            None
+                        }
+                        Err(error) => return Err(error),
+                    };
+                    Ok((path, current))
                 })
-                .cloned()
-                .collect()
+                .collect::<Result<Vec<_>>>()?;
+            paths.sort_by(|(a, _), (b, _)| a.cmp(b));
+            paths.into_iter().collect()
         } else {
-            all
+            self.collection_signature(name)?
         };
         let mut dependencies = BTreeMap::new();
         for target in self.list_dependency_names(name)? {
@@ -921,6 +940,11 @@ mod tests {
             }
         });
         assert_eq!(e.read_cache.parses.load(Ordering::Relaxed), 1);
+        assert_eq!(
+            e.read_cache.files.scans.load(Ordering::Relaxed),
+            0,
+            "a scoped filename list must not scan the collection directory"
+        );
         let with_missing = ListRequest {
             ids: Some(BTreeSet::from(["a".into(), "missing".into()])),
             ..request.clone()
@@ -1076,5 +1100,233 @@ mod tests {
         assert!(e.references_to("items", "a").unwrap().is_empty());
         assert_eq!(e.references_to("items", "b").unwrap().len(), 2);
         assert_eq!(e.read_cache.references.lock().unwrap().scans, scans + 2);
+    }
+
+    #[test]
+    fn child_reads_do_not_wait_for_a_full_collection_build() {
+        let (t, e) = fixture("filename");
+        write(&t, &e, "a", json!({"name":"Alpha"}));
+        // Hold the gate used by a cold full-list request to simulate slow I/O.
+        let preparation = e
+            .read_cache
+            .preparation
+            .lock()
+            .unwrap()
+            .entry(("items".into(), false))
+            .or_default()
+            .clone();
+        let preparing = preparation.lock().unwrap();
+        let (tx, rx) = std::sync::mpsc::channel();
+        std::thread::scope(|scope| {
+            scope.spawn(|| {
+                tx.send(e.query_collection(
+                    "items",
+                    &ListRequest {
+                        ids: Some(BTreeSet::from(["a".into()])),
+                        limit: 10,
+                        ..Default::default()
+                    },
+                ))
+                .unwrap();
+            });
+            let result = rx.recv_timeout(std::time::Duration::from_secs(2));
+            drop(preparing);
+            let page = result
+                .expect("child list blocked behind full collection")
+                .unwrap();
+            assert_eq!(page.rows[0].id, "a");
+        });
+    }
+
+    #[test]
+    fn cached_backlinks_reuse_snapshots_but_writes_reconcile_external_changes() {
+        let (t, e) = fixture("filename");
+        write(&t, &e, "a", json!({"name":"Alpha"}));
+        write(&t, &e, "b", json!({"name":"Bravo","link":"a"}));
+        assert_eq!(e.cached_references_to("items", "a").unwrap().len(), 1);
+        let scans = e.read_cache.files.scans.load(Ordering::Relaxed);
+        let parses = e.read_cache.parses.load(Ordering::Relaxed);
+        for _ in 0..5 {
+            assert_eq!(e.cached_references_to("items", "a").unwrap().len(), 1);
+        }
+        assert_eq!(e.read_cache.files.scans.load(Ordering::Relaxed), scans);
+        assert_eq!(e.read_cache.parses.load(Ordering::Relaxed), parses);
+        let b = e.get("items", "b").unwrap();
+        e.save("items", "b", json!({"name":"Bravo"}), Some(&b.revision))
+            .unwrap();
+        assert!(e.cached_references_to("items", "a").unwrap().is_empty());
+        assert_eq!(e.read_cache.references.lock().unwrap().scans, 3);
+        // No explicit refresh: deletion must see a reference written before the
+        // watcher necessarily has time to deliver its event.
+        fs::write(
+            t.path().join("data/items/c.json"),
+            r#"{"name":"New","link":"a"}"#,
+        )
+        .unwrap();
+        let a = e.get("items", "a").unwrap();
+        assert!(matches!(
+            e.delete("items", "a", &a.revision),
+            Err(Error::Conflict(_))
+        ));
+        assert!(t.path().join("data/items/a.json").exists());
+    }
+
+    #[test]
+    fn large_parallel_indexes_recover_from_bad_files_and_share_concurrent_queries() {
+        let (t, _) = fixture("filename");
+        for i in 0..4096 {
+            fs::write(
+                t.path().join(format!("data/items/item-{i:04}.json")),
+                json!({"name":format!("Name {i:04}"), "link":"item-0000"}).to_string(),
+            )
+            .unwrap();
+        }
+        let bad = t.path().join("data/items/item-2000.json");
+        fs::write(&bad, "invalid json").unwrap();
+        let e = Editor::open(t.path()).unwrap();
+        let request = ListRequest {
+            limit: 10,
+            ..Default::default()
+        };
+        assert!(e.query_collection("items", &request).is_err());
+        assert!(e.cached_references_to("items", "item-0000").is_err());
+        fs::write(
+            bad,
+            json!({"name":"Name 2000", "link":"item-0000"}).to_string(),
+        )
+        .unwrap();
+        e.refresh_read_cache();
+        std::thread::scope(|scope| {
+            for _ in 0..2 {
+                scope.spawn(|| {
+                    let page = e.query_collection("items", &request).unwrap();
+                    assert_eq!(page.total, 4096);
+                    assert_eq!(
+                        page.rows
+                            .iter()
+                            .map(|row| row.id.clone())
+                            .collect::<Vec<_>>(),
+                        (0..10).map(|i| format!("item-{i:04}")).collect::<Vec<_>>()
+                    );
+                });
+            }
+        });
+        assert_eq!(e.read_cache.prepared.lock().unwrap().len(), 1);
+        assert_eq!(
+            e.cached_references_to("items", "item-0000").unwrap().len(),
+            4096
+        );
+        let parses = e.read_cache.parses.load(Ordering::Relaxed);
+        e.cached_references_to("items", "item-0000").unwrap();
+        assert_eq!(e.read_cache.parses.load(Ordering::Relaxed), parses);
+    }
+
+    #[test]
+    fn table_projection_keeps_search_sort_filters_and_column_changes_correct() {
+        let (t, _) = fixture("filename");
+        let path = t.path().join(".editor/schema.json");
+        let mut schema: Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+        schema["oneOf"][0]["properties"]["body"] = json!({"type":"string", "x-content":"markdown"});
+        schema["oneOf"][0]["properties"]["count"] = json!({"type":"integer"});
+        schema["oneOf"][0]["properties"]["unused"] = json!({"type":"array"});
+        schema["oneOf"][0]["x-collection"]["search"] = json!(["body"]);
+        fs::write(&path, schema.to_string()).unwrap();
+        let e = Editor::open(t.path()).unwrap();
+        write(
+            &t,
+            &e,
+            "a",
+            json!({"name":"Zulu", "body":"**Needle**", "count":1, "unused":["large"]}),
+        );
+        write(
+            &t,
+            &e,
+            "b",
+            json!({"name":"Alpha", "body":"Other", "count":2}),
+        );
+        let ui = json!({"list":{"filters":["count"]}});
+        let mut request = ListRequest {
+            fields: Some(BTreeSet::new()),
+            query: "needle".into(),
+            sort: "count".into(),
+            limit: 10,
+            ..Default::default()
+        };
+        let page = e.query_collection_with_ui("items", &request, &ui).unwrap();
+        assert_eq!(page.rows[0].label, "Zulu");
+        assert_eq!(page.rows[0].display["body"], "Needle");
+        assert!(page.rows[0].value.get("unused").is_none());
+        assert!(!page.rows[0].matches.is_empty());
+        request.query.clear();
+        request.filters.insert("count.min".into(), "2".into());
+        assert_eq!(
+            e.query_collection_with_ui("items", &request, &ui)
+                .unwrap()
+                .rows[0]
+                .id,
+            "b"
+        );
+        request.filters.clear();
+        request.fields.as_mut().unwrap().insert("unused".into());
+        assert_eq!(
+            e.query_collection_with_ui("items", &request, &ui)
+                .unwrap()
+                .rows[0]
+                .display["unused"],
+            "large"
+        );
+        request.fields = None;
+        assert_eq!(
+            e.query_collection_with_ui("items", &request, &ui)
+                .unwrap()
+                .rows[0]
+                .value["name"],
+            "Zulu"
+        );
+    }
+
+    #[test]
+    fn parent_membership_index_reuses_unchanged_files_and_tracks_edits() {
+        let (t, _) = fixture("filename");
+        let path = t.path().join(".editor/schema.json");
+        let mut schema: Value = serde_json::from_slice(&fs::read(&path).unwrap()).unwrap();
+        let mut parent = schema["oneOf"][0].clone();
+        parent["x-collection"]["name"] = json!("groups");
+        parent["x-collection"]["path"] = json!("data/groups");
+        parent["properties"]["members"] = json!({"type":"array", "uniqueItems":true, "x-children":true, "items":{"type":"string", "x-relation":{"collection":"items"}}});
+        schema["oneOf"].as_array_mut().unwrap().push(parent);
+        let collections = schema.as_object_mut().unwrap().remove("oneOf").unwrap();
+        schema["anyOf"] = collections;
+        fs::write(path, schema.to_string()).unwrap();
+        fs::create_dir(t.path().join("data/groups")).unwrap();
+        fs::write(
+            t.path().join("data/groups/g.json"),
+            r#"{"name":"Group","members":["a"]}"#,
+        )
+        .unwrap();
+        let e = Editor::open(t.path()).unwrap();
+        write(&t, &e, "a", json!({"name":"Alpha"}));
+        write(&t, &e, "b", json!({"name":"Bravo"}));
+        assert_eq!(e.parent_links("items", "a").unwrap()[0].label, "Group");
+        let scans = e.read_cache.parents.lock().unwrap().scans;
+        let parses = e.read_cache.parses.load(Ordering::Relaxed);
+        assert!(e.parent_links("items", "b").unwrap().is_empty());
+        assert_eq!(e.parent_links("items", "a").unwrap().len(), 1);
+        assert_eq!(e.read_cache.parents.lock().unwrap().scans, scans);
+        assert_eq!(e.read_cache.parses.load(Ordering::Relaxed), parses);
+        let group = e.get("groups", "g").unwrap();
+        e.save(
+            "groups",
+            "g",
+            json!({"name":"Changed", "members":["b"]}),
+            Some(&group.revision),
+        )
+        .unwrap();
+        assert!(e.parent_links("items", "a").unwrap().is_empty());
+        assert_eq!(e.parent_links("items", "b").unwrap()[0].label, "Changed");
+        assert_eq!(e.read_cache.parents.lock().unwrap().scans, scans + 1);
+        fs::remove_file(t.path().join("data/groups/g.json")).unwrap();
+        e.refresh_read_cache();
+        assert!(e.parent_links("items", "b").unwrap().is_empty());
     }
 }

@@ -111,7 +111,15 @@ pub fn render(
             "Incomplete parent list context",
         ));
     }
+    let table_columns = TableColumns::new(&c.editor_schema, &ui, params, "", &["_label", "_id"]);
     let request = ListRequest {
+        fields: Some(
+            table_columns
+                .selected
+                .iter()
+                .map(|(key, _)| key.clone())
+                .collect(),
+        ),
         ids: if let (Some(parent), Some(id), Some(field)) = (
             params.get("parent_collection"),
             params.get("parent_id"),
@@ -164,7 +172,6 @@ pub fn render(
         .as_object()
         .cloned()
         .unwrap_or_default();
-    let table_columns = TableColumns::new(&c.editor_schema, &ui, params, "", &["_label", "_id"]);
     let available = &table_columns.available;
     let columns = &table_columns.selected;
     let url = query_url(&base, params);

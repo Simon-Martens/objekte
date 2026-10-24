@@ -31,6 +31,10 @@ pub fn router(state: Arc<AppState>) -> Router {
         .route("/auth/logout", post(logout))
         .route("/collections/{name}", get(collection))
         .route("/collections/{name}/records/{id}", get(record))
+        .route(
+            "/collections/{name}/records/{id}/references",
+            get(record_references),
+        )
         .route("/collections/{name}/records/{id}/export", get(export))
         .route("/collections/{name}/edit-sessions", post(create))
         .route("/collections/{name}/records/{id}/edit", get(edit_entry))
@@ -277,6 +281,23 @@ async fn record(
     })
     .await
 }
+async fn record_references(
+    State(state): App,
+    Path((name, id)): Path<(String, String)>,
+    Query(query): Query<HashMap<String, String>>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    state.auth.actor(&headers).await?;
+    let offset = query
+        .get("offset")
+        .and_then(|value| value.parse().ok())
+        .unwrap_or(0);
+    blocking(move || {
+        Ok(Html(views::record_references(&state.editor, &name, &id, offset)?).into_response())
+    })
+    .await
+}
+
 pub(crate) async fn mutation_actor(
     state: &AppState,
     headers: &HeaderMap,

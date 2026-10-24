@@ -133,7 +133,24 @@ impl Editor {
     }
     /// Derived values are read projections. They are never duplicated into persisted records.
     pub fn view_value(&self, collection: &str, value: &Value) -> Result<Value> {
+        Ok(self.projected_value(collection, value)?.into_owned())
+    }
+    pub(crate) fn projected_value<'a>(
+        &self,
+        collection: &str,
+        value: &'a Value,
+    ) -> Result<std::borrow::Cow<'a, Value>> {
         let c = self.config().collection(collection)?;
+        if !c.schema_value["properties"]
+            .as_object()
+            .is_some_and(|props| {
+                props
+                    .values()
+                    .any(|schema| schema.get("x-derived").is_some())
+            })
+        {
+            return Ok(std::borrow::Cow::Borrowed(value));
+        }
         let mut result = value.clone();
         if let Some(props) = c.schema_value["properties"].as_object() {
             for (key, s) in props {
@@ -161,7 +178,7 @@ impl Editor {
                 }
             }
         }
-        Ok(result)
+        Ok(std::borrow::Cow::Owned(result))
     }
     pub fn initial_value(&self, collection: &str, context: &Value) -> Result<Value> {
         let c = self.config().collection(collection)?;
@@ -319,8 +336,17 @@ impl Editor {
         Ok(value)
     }
     pub fn label(&self, collection: &str, value: &Value, id: &str, view: &str) -> Result<String> {
+        let v = self.projected_value(collection, value)?;
+        self.label_projected(collection, &v, id, view)
+    }
+    pub(crate) fn label_projected(
+        &self,
+        collection: &str,
+        v: &Value,
+        id: &str,
+        view: &str,
+    ) -> Result<String> {
         let c = self.config().collection(collection)?;
-        let v = self.view_value(collection, value)?;
         if let Some(fields) =
             c.ui.pointer(&format!("/labels/{view}"))
                 .and_then(Value::as_array)
@@ -332,7 +358,7 @@ impl Editor {
                     if k.starts_with('/') {
                         v.pointer(k)
                     } else {
-                        k.split('.').try_fold(&v, |value, part| value.get(part))
+                        k.split('.').try_fold(v, |value, part| value.get(part))
                     }
                 })
                 .map(|v| {

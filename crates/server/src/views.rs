@@ -336,7 +336,7 @@ struct RecordView<'a> {
     content: String,
     delete: String,
     actor: crate::templates::ActorContext<'a>,
-    references: Vec<String>,
+    references: String,
     children: String,
     parents: String,
     can_delete: bool,
@@ -366,7 +366,6 @@ pub fn record_at(
     let draft = editor.draft(name, &doc.value)?;
     let url = record_url(name, id);
     let content = crate::tree::preview(editor, &draft, &projected, &url, path);
-    let parent_links = editor.parent_links(name, id)?;
     Ok(RecordView {
         record_kind: record_kind(editor, name)?,
         view_url: table::query_url(&url, params),
@@ -382,39 +381,94 @@ pub fn record_at(
         parents: crate::hierarchy::parents(editor, name, id)?,
         delete: format!("{url}/delete"),
         actor: actor.into(),
-        references: editor
-            .references_to(name, id)?
-            .iter()
-            .filter(|r| {
-                !parent_links.iter().any(|p| {
-                    p.collection == r.collection
-                        && p.id == r.record_id
-                        && r.path.starts_with(&format!(
-                            "/{}/",
-                            p.field.replace('~', "~0").replace('/', "~1")
-                        ))
-                })
-            })
-            .map(|r| {
-                format!(
-                    "<a data-nav href=\"{}\">{}/{}</a> at {}",
-                    r.document
-                        .as_ref()
-                        .map(|name| if name.is_empty() {
-                            "/settings".into()
-                        } else {
-                            format!("/documents/{}?file={}", encode(name), encode(&r.record_id))
-                        })
-                        .unwrap_or_else(|| record_url(&r.collection, &r.record_id)),
-                    escape(&r.collection),
-                    escape(&r.record_id),
-                    escape(&r.path)
-                )
-            })
-            .collect(),
+        // A fresh element on every workspace patch restarts the panel after
+        // membership edits and prevents a previous record's response being reused.
+        references: format!("<record-references id=\"references-{}\" data-url=\"{url}/references\"><p class=\"muted\" role=\"status\">Loading incoming references…</p></record-references>", uuid::Uuid::new_v4().simple()),
     }
     .render()?)
 }
+/// A separate fragment keeps cold backlink indexing off the record's critical path.
+pub fn record_references(editor: &Editor, name: &str, id: &str, offset: usize) -> Result<String> {
+    editor.require_operation(name, "read")?;
+    editor.get(name, id)?;
+    let parents = editor.parent_links(name, id)?;
+    let references: Vec<_> = editor
+        .cached_references_to(name, id)?
+        .into_iter()
+        .filter(|reference| {
+            reference.document.is_some()
+                || !parents.iter().any(|parent| {
+                    parent.collection == reference.collection
+                        && parent.id == reference.record_id
+                        && reference.path.starts_with(&format!(
+                            "/{}/",
+                            parent.field.replace('~', "~0").replace('/', "~1")
+                        ))
+                })
+        })
+        .collect();
+    if references.is_empty() {
+        return Ok("<p class=\"muted\">No incoming references.</p>".into());
+    }
+    let limit = 100;
+    let offset = offset.min((references.len() - 1) / limit * limit);
+    let mut html = format!(
+        "<section class=\"surface references-panel\"><div class=\"section-heading\"><h2><i class=\"ri-links-line\" aria-hidden=\"true\"></i>Incoming references</h2><span class=\"badge\">{}</span></div><ul>",
+        references.len()
+    );
+    for reference in references.iter().skip(offset).take(limit) {
+        let url = reference
+            .document
+            .as_ref()
+            .map(|name| {
+                if name.is_empty() {
+                    "/settings".into()
+                } else {
+                    format!(
+                        "/documents/{}?file={}",
+                        encode(name),
+                        encode(&reference.record_id)
+                    )
+                }
+            })
+            .unwrap_or_else(|| record_url(&reference.collection, &reference.record_id));
+        html += &format!(
+            "<li><a data-nav href=\"{}\">{}/{}</a> at {}</li>",
+            escape(&url),
+            escape(&reference.collection),
+            escape(&reference.record_id),
+            escape(&reference.path)
+        );
+    }
+    html += "</ul>";
+    if references.len() > limit {
+        html += &format!(
+            "<nav class=\"actions\" aria-label=\"Incoming references pages\"><span>{}–{} of {}</span>",
+            offset + 1,
+            (offset + limit).min(references.len()),
+            references.len()
+        );
+        for (label, next) in [
+            ("Previous", offset.checked_sub(limit)),
+            (
+                "Next",
+                (offset + limit < references.len()).then_some(offset + limit),
+            ),
+        ] {
+            if let Some(next) = next {
+                html += &format!(
+                    "<a class=\"button quiet small\" data-reference-page href=\"{}/references?offset={}\">{}</a>",
+                    record_url(name, id),
+                    next,
+                    label
+                );
+            }
+        }
+        html += "</nav>";
+    }
+    Ok(html + "</section>")
+}
+
 crate::templates::template!(Edit<'_>, "edit.html");
 #[derive(serde::Serialize)]
 struct Edit<'a> {

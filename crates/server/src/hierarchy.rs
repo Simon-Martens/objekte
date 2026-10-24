@@ -199,6 +199,13 @@ pub fn sections(
         let rows = editor.query_collection_with_ui(
             &child.collection,
             &ListRequest {
+                fields: Some(
+                    columns
+                        .selected
+                        .iter()
+                        .map(|(key, _)| key.clone())
+                        .collect(),
+                ),
                 ids: Some(child_ids),
                 sort: ui
                     .pointer("/list/defaultSort/field")

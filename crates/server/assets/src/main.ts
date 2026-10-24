@@ -30,6 +30,8 @@ window.fetch = (input, init) => {
   headers.set('x-objekte-project', projectId);
   return nativeFetch(input, {...init, headers});
 };
+import { installRecordReferences } from './controls/record-references';
+installRecordReferences(window);
 
 // Navigation mechanics only. Datastar applies every server-generated DOM patch.
 let dirty = false;

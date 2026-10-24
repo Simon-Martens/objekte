@@ -17,6 +17,12 @@ pub fn alphabetic_cmp(a: &str, b: &str) -> Ordering {
     ALPHABETIC.compare(a, b)
 }
 
+pub(crate) fn alphabetic_key(text: &str) -> Vec<u8> {
+    let mut key = Vec::new();
+    let Ok(()) = ALPHABETIC.write_sort_key_to(text, &mut key);
+    key
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

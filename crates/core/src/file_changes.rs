@@ -26,6 +26,9 @@ impl FileChanges {
         let changes = Arc::new(Mutex::new(Changes::default()));
         let pending = changes.clone();
         let watcher = notify::recommended_watcher(move |event: notify::Result<Event>| {
+            if matches!(&event, Ok(event) if matches!(event.kind, EventKind::Access(_)) && !event.need_rescan()) {
+                return;
+            }
             let mut pending = pending.lock().unwrap();
             match event {
                 Ok(event) if event.need_rescan() => pending.rescan = true,
@@ -107,12 +110,24 @@ impl FileChanges {
             rescan: true,
         });
         if snapshot.rescan || snapshot.scanned.elapsed() >= self.interval {
-            let mut paths = editor.files(name)?;
-            paths.sort();
-            let current: read_cache::Signature = paths
-                .into_iter()
-                .map(|path| Ok((path.clone(), Some(read_cache::stamp(&path)?))))
-                .collect::<Result<_>>()?;
+            let collection = editor.config.collection(name)?;
+            let mut paths = Vec::new();
+            for entry in fs::read_dir(editor.config.collection_dir(name)?)? {
+                let entry = entry?;
+                let path = entry.path();
+                if path.extension().and_then(|extension| extension.to_str())
+                    != Some(extension(collection))
+                {
+                    continue;
+                }
+                let metadata = entry.metadata()?;
+                let stamp = read_cache::stamp_metadata(&path, &metadata)?;
+                if metadata.is_file() {
+                    paths.push((path, Some(stamp)));
+                }
+            }
+            paths.sort_by(|(a, _), (b, _)| a.cmp(b));
+            let current: read_cache::Signature = paths.into_iter().collect();
             if snapshot.signature != current {
                 snapshot.signature = current;
             }

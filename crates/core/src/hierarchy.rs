@@ -119,36 +119,73 @@ impl Editor {
             .collect())
     }
     pub fn parent_links(&self, collection: &str, id: &str) -> Result<Vec<ParentLink>> {
-        let mut links = Vec::new();
+        self.config.collection(collection)?;
+        safe_name(id)?;
+        let mut cache = self.read_cache.parents.lock().unwrap();
         for (parent, c) in &self.config.collections {
             if !self.allows(parent, "read") {
                 continue;
             }
-            let fields: Vec<_> = c
-                .child_collections()
-                .into_iter()
-                .filter(|f| f.collection == collection)
-                .collect();
-            if fields.is_empty() {
+            let fields = c.child_collections();
+            if !fields.iter().any(|f| f.collection == collection) {
                 continue;
             }
-            for file in self.files(parent)? {
-                let value = parse(c, &fs::read(&file)?)?;
+            let signature = self.collection_signature(parent)?;
+            let previous = cache.signatures.get(parent).cloned().unwrap_or_default();
+            for (file, stamp) in listing::changed_paths(&previous, &signature) {
+                let Some(stamp) = stamp else {
+                    cache.remove(file);
+                    continue;
+                };
+                let doc = self.cached_document(parent, file)?;
+                let mut references: read_cache::ReferenceIndex = HashMap::new();
                 for f in &fields {
-                    if value[&f.field]
+                    let ids: BTreeSet<_> = doc.value[&f.field]
                         .as_array()
-                        .is_some_and(|a| a.iter().any(|v| v.as_str() == Some(id)))
-                    {
-                        let parent_id = record_id(c, &file, &value)?;
-                        links.push(ParentLink {
-                            collection: parent.clone(),
-                            label: self.label(parent, &value, &parent_id, "reference")?,
-                            id: parent_id,
-                            field: f.field.clone(),
-                        });
+                        .into_iter()
+                        .flatten()
+                        .filter_map(Value::as_str)
+                        .collect();
+                    for id in ids {
+                        references
+                            .entry((f.collection.clone(), id.into()))
+                            .or_default()
+                            .push(Reference {
+                                document: None,
+                                collection: parent.clone(),
+                                record_id: doc.id.clone(),
+                                path: f.field.clone(),
+                            });
                     }
                 }
+                cache.replace(
+                    file.clone(),
+                    stamp.clone(),
+                    references,
+                    None,
+                    BTreeSet::new(),
+                );
             }
+            cache.signatures.insert(parent.clone(), signature);
+        }
+        let references: Vec<_> = cache
+            .by_target
+            .get(&(collection.into(), id.into()))
+            .into_iter()
+            .flat_map(|files| files.values())
+            .flatten()
+            .cloned()
+            .collect();
+        drop(cache);
+        let mut links = Vec::new();
+        for reference in references {
+            let doc = self.get(&reference.collection, &reference.record_id)?;
+            links.push(ParentLink {
+                label: self.label(&reference.collection, &doc.value, &doc.id, "reference")?,
+                collection: reference.collection,
+                id: doc.id,
+                field: reference.path,
+            });
         }
         links.sort_by(|a, b| crate::alphabetic_cmp(&a.label, &b.label).then(a.id.cmp(&b.id)));
         Ok(links)

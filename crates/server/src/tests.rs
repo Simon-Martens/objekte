@@ -4087,3 +4087,81 @@ async fn project_selection_isolates_data_drafts_and_csrf() {
         "First"
     );
 }
+
+#[tokio::test]
+async fn records_render_without_backlink_scans_and_reference_fragments_are_bounded() {
+    let (temp, state, cookie, _) = fixture().await;
+    let data = temp.path().join("project/data/notes");
+    // A broken unrelated record proves the initial view does not index backlinks.
+    std::fs::write(data.join("broken.json"), "not json").unwrap();
+    let (status, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert!(html.contains("First") && html.contains("<record-references"));
+    let (status, _) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/references",
+        "",
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
+    let (status, _) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/references",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::BAD_REQUEST);
+    std::fs::remove_file(data.join("broken.json")).unwrap();
+    for n in 0..105 {
+        std::fs::write(data.join(format!("ref-{n:03}.json")), json!({"name":format!("Ref {n}"),"count":0,"body":"[First](/collections/notes/records/one)"}).to_string()).unwrap();
+    }
+    state.editor.refresh_read_cache();
+    let (status, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/references",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::OK);
+    assert_eq!(html.matches("<li>").count(), 100);
+    assert!(html.contains("1–100 of 105") && html.contains("data-reference-page"));
+    assert!(!html.contains("<main") && !html.contains("<html"));
+    let (_, html) = request(
+        state.clone(),
+        "GET",
+        "/collections/notes/records/one/references?offset=100",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(html.matches("<li>").count(), 5);
+    assert!(html.contains("101–105 of 105") && html.contains("Previous"));
+    let (status, _) = request(
+        state,
+        "GET",
+        "/collections/notes/records/missing/references",
+        &cookie,
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::NOT_FOUND);
+}

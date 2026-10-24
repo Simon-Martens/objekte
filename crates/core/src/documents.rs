@@ -574,18 +574,40 @@ impl Editor {
     }
 
     pub fn references_to(&self, collection: &str, id: &str) -> Result<Vec<Reference>> {
+        // Integrity checks (rename/delete) must see external changes even before
+        // the filesystem watcher delivers them. Interactive reads use the cache.
+        self.refresh_read_cache();
+        self.cached_references_to(collection, id)
+    }
+
+    /// Incoming references using watcher-maintained snapshots. Use `references_to`
+    /// for a synchronous disk reconciliation before an integrity-sensitive write.
+    pub fn cached_references_to(&self, collection: &str, id: &str) -> Result<Vec<Reference>> {
         self.config.collection(collection)?;
         safe_name(id)?;
+        let mut cache = self.read_cache.references.lock().unwrap();
         let mut sources = BTreeMap::new();
+        let mut signatures = BTreeMap::new();
+        let mut stamps = BTreeMap::new();
         for name in self.config.collections.keys() {
-            for path in self.files(name)? {
-                sources.insert(path, ReferenceSource::Record(name.clone()));
+            let current = self.collection_signature(name)?;
+            let empty = read_cache::Signature::default();
+            let old = cache.signatures.get(name).unwrap_or(&empty);
+            for (path, stamp) in listing::changed_paths(old, &current) {
+                if let Some(stamp) = stamp {
+                    sources.insert(path.clone(), ReferenceSource::Record(name.clone()));
+                    stamps.insert(path.clone(), Some(stamp.clone()));
+                } else {
+                    stamps.insert(path.clone(), None);
+                }
             }
+            signatures.insert(name.clone(), current);
         }
+        let mut documents = BTreeMap::new();
         for (name, mapping) in &self.config.documents {
             for file in &mapping.files {
                 crate::contained(&self.config.root, file)?;
-                sources.insert(
+                documents.insert(
                     self.config.root.join(file),
                     ReferenceSource::Document(name.clone()),
                 );
@@ -599,52 +621,92 @@ impl Editor {
                 .any(|mapping| mapping.files.contains(&settings.path))
             {
                 crate::contained(&self.config.root, &settings.path)?;
-                sources.insert(
+                documents.insert(
                     self.config.root.join(&settings.path),
                     ReferenceSource::Settings,
                 );
             }
         }
-        let mut stamps = BTreeMap::new();
-        for path in sources.keys() {
-            stamps.insert(path.clone(), read_cache::stamp(path)?);
+        let document_signature: read_cache::Signature = documents
+            .keys()
+            .map(|path| Ok((path.clone(), Some(read_cache::stamp(path)?))))
+            .collect::<Result<_>>()?;
+        for (path, stamp) in listing::changed_paths(&cache.documents, &document_signature) {
+            stamps.insert(path.clone(), stamp.cloned());
+            if let Some(source) = documents.get(path) {
+                sources.insert(path.clone(), source.clone());
+            }
         }
-        let mut cache = self.read_cache.references.lock().unwrap();
-        let paths: BTreeSet<_> = cache.stamps.keys().chain(stamps.keys()).cloned().collect();
-        let changed_paths: BTreeSet<_> = paths
-            .into_iter()
-            .filter(|path| cache.stamps.get(path) != stamps.get(path))
-            .collect();
         let mut changed_ids = BTreeSet::new();
-        for path in &changed_paths {
+        for path in stamps.keys().filter(|_| !cache.dependencies.is_empty()) {
             if let Some(old_id) = cache.file_ids.get(path) {
                 changed_ids.insert(old_id.clone());
             }
             if let Some(ReferenceSource::Record(name)) = sources.get(path) {
-                changed_ids.insert((name.clone(), self.cached_document(name, path)?.id.clone()));
+                let id = if matches!(self.config.collection(name)?.id, IdStrategy::Filename) {
+                    path.file_stem()
+                        .and_then(|s| s.to_str())
+                        .unwrap_or_default()
+                        .to_owned()
+                } else {
+                    self.cached_document(name, path)?.id.clone()
+                };
+                changed_ids.insert((name.clone(), id));
             }
         }
-        let mut affected = changed_paths;
         for (path, dependencies) in &cache.dependencies {
-            if !dependencies.is_disjoint(&changed_ids) {
-                affected.insert(path.clone());
+            if !stamps.contains_key(path) && !dependencies.is_disjoint(&changed_ids) {
+                if let Some((name, _)) = cache.file_ids.get(path) {
+                    sources.insert(path.clone(), ReferenceSource::Record(name.clone()));
+                    stamps.insert(path.clone(), Some(cache.stamps[path].clone()));
+                }
             }
         }
-        for path in affected {
-            if let Some(source) = sources.get(&path) {
-                let (references, record_id, dependencies) =
-                    self.references_from_source(&path, source)?;
-                cache.replace(
-                    path.clone(),
-                    stamps[&path].clone(),
-                    references,
-                    record_id,
-                    dependencies,
-                );
+        let updates: Vec<_> = stamps.into_iter().collect();
+        let build = |(path, stamp): &(PathBuf, Option<read_cache::Stamp>)| {
+            if let (Some(_), Some(source)) = (stamp, sources.get(path)) {
+                self.references_from_source(path, source).map(Some)
+            } else {
+                Ok(None)
+            }
+        };
+        let prepared = if updates.len() >= 4096 {
+            let workers = std::thread::available_parallelism()
+                .map(usize::from)
+                .unwrap_or(1)
+                .min(4);
+            std::thread::scope(|scope| -> Result<Vec<_>> {
+                let handles: Vec<_> = updates
+                    .chunks(updates.len().div_ceil(workers))
+                    .map(|chunk| {
+                        let build = &build;
+                        scope.spawn(move || chunk.iter().map(build).collect::<Result<Vec<_>>>())
+                    })
+                    .collect();
+                let mut prepared = Vec::with_capacity(updates.len());
+                for handle in handles {
+                    prepared.extend(
+                        handle
+                            .join()
+                            .map_err(|_| Error::Data("reference index worker failed".into()))??,
+                    );
+                }
+                Ok(prepared)
+            })?
+        } else {
+            updates.iter().map(build).collect::<Result<Vec<_>>>()?
+        };
+        for ((path, stamp), contribution) in updates.into_iter().zip(prepared) {
+            if let (Some(stamp), Some((references, record_id, dependencies))) =
+                (stamp, contribution)
+            {
+                cache.replace(path, stamp, references, record_id, dependencies);
             } else {
                 cache.remove(&path);
             }
         }
+        cache.signatures = signatures;
+        cache.documents = document_signature;
         let mut references = cache
             .by_target
             .get(&(collection.to_owned(), id.to_owned()))
@@ -668,14 +730,15 @@ impl Editor {
         Option<(String, String)>,
         BTreeSet<(String, String)>,
     )> {
+        let doc;
         let (schema, value, document, collection, record_id, dependencies) = match source {
             ReferenceSource::Record(name) => {
                 let c = self.config.collection(name)?;
-                let doc = self.cached_document(name, path)?;
+                doc = self.cached_document(name, path)?;
                 let dependencies = listing::derived_relation_ids(c, &doc.value);
                 (
                     &c.schema_value,
-                    self.view_value(name, &doc.value)?,
+                    self.projected_value(name, &doc.value)?,
                     None,
                     name.clone(),
                     doc.id.clone(),
@@ -695,7 +758,7 @@ impl Editor {
                     .ok_or_else(|| Error::Config(format!("unknown document {name}")))?;
                 (
                     &mapping.schema,
-                    self.json_document(name, &relative)?.value,
+                    std::borrow::Cow::Owned(self.json_document(name, &relative)?.value),
                     Some(name.clone()),
                     String::new(),
                     relative,
@@ -712,7 +775,7 @@ impl Editor {
                     .clone();
                 (
                     self.settings_schema()?,
-                    self.settings()?.value,
+                    std::borrow::Cow::Owned(self.settings()?.value),
                     Some(String::new()),
                     String::new(),
                     relative,
@@ -1438,7 +1501,11 @@ fn visit_relations(
     if depth > 64 {
         return Err(Error::Data("relation nesting too deep".into()));
     }
-    let resolved = crate::draft::resolve(root, schema, 0);
+    let resolved = if schema.get("$ref").is_some() {
+        std::borrow::Cow::Owned(crate::draft::resolve(root, schema, 0))
+    } else {
+        std::borrow::Cow::Borrowed(schema)
+    };
     for keyword in ["oneOf", "anyOf", "allOf"] {
         if let Some(branches) = resolved.get(keyword).and_then(Value::as_array) {
             for branch in branches {
@@ -1707,6 +1774,9 @@ fn visit_markdown_links(value: &Value, path: &str, visit: &mut impl FnMut(&str, 
             }
         }
         Value::String(text) => {
+            if !text.contains(['[', '<']) {
+                return;
+            }
             let mut destinations = BTreeSet::new();
             for event in Parser::new(text) {
                 let destination = match event {

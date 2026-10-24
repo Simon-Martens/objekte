@@ -6,5 +6,5 @@
   {{ parents|safe }}
   <div class="surface record-preview">{{ content|safe }}</div>
   {{ children|safe }}
-  {% if references %}<section class="surface references-panel"><div class="section-heading"><h2><i class="ri-links-line" aria-hidden="true"></i>Incoming references</h2><span class="badge">{{ references|length }}</span></div><ul>{% for reference in references %}<li>{{ reference|safe }}</li>{% endfor %}</ul></section>{% endif %}
+  {{ references|safe }}
 </main>
