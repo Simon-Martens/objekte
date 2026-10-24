@@ -39,6 +39,33 @@ pub struct ListPage {
     pub matched: usize,
     pub facets: Vec<ListFacet>,
 }
+pub(super) struct PreparedEntry {
+    id: Option<String>,
+    pub row: Option<Arc<ListRow>>,
+    dependencies: BTreeSet<(String, String)>,
+}
+pub(super) struct PreparedList {
+    pub rows: Vec<Arc<ListRow>>,
+    pub by_path: HashMap<PathBuf, PreparedEntry>,
+    pub path_ids: HashMap<PathBuf, String>,
+}
+struct CachedMatch {
+    row: Arc<ListRow>,
+    matches: Vec<ListMatch>,
+}
+impl std::ops::Deref for CachedMatch {
+    type Target = ListRow;
+
+    fn deref(&self) -> &Self::Target {
+        &self.row
+    }
+}
+pub(super) struct CachedListPage {
+    rows: Vec<CachedMatch>,
+    total: usize,
+    matched: usize,
+    facets: Vec<ListFacet>,
+}
 pub fn display_text(value: &Value) -> String {
     match value {
         Value::String(s) => s.clone(),
@@ -68,6 +95,36 @@ fn field_display(value: &Value, schema: &Value) -> String {
     }
 }
 impl Editor {
+    fn list_row_dependencies(
+        &self,
+        collection: &Collection,
+        raw: &Value,
+        projected: &Value,
+        properties: &serde_json::Map<String, Value>,
+        visible: &impl Fn(&str) -> bool,
+    ) -> Result<BTreeSet<(String, String)>> {
+        let mut dependencies = derived_relation_ids(collection, raw);
+        for (key, schema) in properties {
+            if !visible(key) || schema["x-children"] == true {
+                continue;
+            }
+            let (Some(target), Some(id)) = (
+                schema
+                    .pointer("/x-relation/collection")
+                    .and_then(Value::as_str),
+                projected.get(key).and_then(Value::as_str),
+            ) else {
+                continue;
+            };
+            dependencies.insert((target.into(), id.into()));
+            if let Ok(target_doc) = self.get(target, id) {
+                let target_collection = self.config.collection(target)?;
+                dependencies.extend(derived_relation_ids(target_collection, &target_doc.value));
+            }
+        }
+        Ok(dependencies)
+    }
+
     pub fn query_collection(&self, name: &str, request: &ListRequest) -> Result<ListPage> {
         self.query_collection_with_ui(name, request, &self.config.collection(name)?.ui)
     }
@@ -80,7 +137,7 @@ impl Editor {
         ui: &Value,
     ) -> Result<ListPage> {
         self.require_operation(name, "read")?;
-        let signature = self.read_signature()?;
+        let signature = self.list_signature(name, request.ids.as_ref())?;
         let mut query = request.clone();
         query.offset = 0;
         query.limit = 0;
@@ -154,37 +211,86 @@ impl Editor {
         let mut rows = Vec::new();
         let prepared_key = serde_json::to_string(&(name, &request.ids, &request.category))
             .map_err(|e| Error::Data(e.to_string()))?;
-        let cached = self
+        let previous = self
             .read_cache
             .prepared
             .lock()
             .unwrap()
             .iter()
-            .find(|(old, k, _)| old == &signature && k == &prepared_key)
-            .map(|(_, _, rows)| rows.clone());
+            .rev()
+            .find(|(_, k, _)| k == &prepared_key)
+            .map(|(old, _, rows)| (old.clone(), rows.clone()));
+        let cached = previous
+            .as_ref()
+            .and_then(|(old, rows)| (old == &signature).then(|| rows.clone()));
         let prepared = if let Some(rows) = cached {
             rows
         } else {
-            let mut prepared = Vec::new();
+            let mut prepared = PreparedList {
+                rows: Vec::new(),
+                by_path: HashMap::new(),
+                path_ids: HashMap::new(),
+            };
             let mut ids = HashSet::new();
             let mut relations = HashMap::<(String, String), String>::new();
-            for path in self.files(name)? {
-                // Filename IDs allow a child list to avoid loading unrelated records.
-                if matches!(c.id, IdStrategy::Filename)
-                    && request.ids.as_ref().is_some_and(|ids| {
-                        !path
-                            .file_stem()
-                            .and_then(|s| s.to_str())
-                            .is_some_and(|id| ids.contains(id))
-                    })
+            let changed_ids = if let Some((old, rows)) = &previous {
+                changed_record_ids(self, name, old, &signature, &rows.path_ids)?
+            } else {
+                BTreeSet::new()
+            };
+            let old_stamps: HashMap<_, _> = previous
+                .as_ref()
+                .map(|(old, _)| {
+                    old.source
+                        .iter()
+                        .map(|(path, stamp)| (path, stamp))
+                        .collect()
+                })
+                .unwrap_or_default();
+            for (path, current_stamp) in &signature.source {
+                if current_stamp.is_none() {
+                    continue;
+                }
+                if let Some((_, previous_rows)) = &previous
+                    && old_stamps.get(path) == Some(&current_stamp)
+                    && let Some(entry) = previous_rows.by_path.get(path)
+                    && entry.dependencies.is_disjoint(&changed_ids)
                 {
+                    if let Some(id) = &entry.id
+                        && !ids.insert(id.clone())
+                    {
+                        return Err(Error::Data(format!("duplicate ID {id}")));
+                    }
+                    if let Some(row) = &entry.row {
+                        prepared.rows.push(row.clone());
+                    }
+                    prepared.by_path.insert(
+                        path.clone(),
+                        PreparedEntry {
+                            id: entry.id.clone(),
+                            row: entry.row.clone(),
+                            dependencies: entry.dependencies.clone(),
+                        },
+                    );
+                    if let Some(id) = &entry.id {
+                        prepared.path_ids.insert(path.clone(), id.clone());
+                    }
                     continue;
                 }
                 let doc = self.cached_document(name, &path)?;
                 let id = doc.id.clone();
                 if request.ids.as_ref().is_some_and(|ids| !ids.contains(&id)) {
+                    prepared.by_path.insert(
+                        path.clone(),
+                        PreparedEntry {
+                            id: None,
+                            row: None,
+                            dependencies: BTreeSet::new(),
+                        },
+                    );
                     continue;
                 }
+                prepared.path_ids.insert(path.clone(), id.clone());
                 let value = self.view_value(name, &doc.value)?;
                 if !ids.insert(id.clone()) {
                     return Err(Error::Data(format!("duplicate ID {id}")));
@@ -197,6 +303,14 @@ impl Editor {
                         field(&value, &level.field).and_then(Value::as_str) == Some(expected)
                     })
                 {
+                    prepared.by_path.insert(
+                        path.clone(),
+                        PreparedEntry {
+                            id: Some(id),
+                            row: None,
+                            dependencies: derived_relation_ids(c, &doc.value),
+                        },
+                    );
                     continue;
                 }
                 let mut display = BTreeMap::new();
@@ -232,33 +346,77 @@ impl Editor {
                     }
                 }
                 let label = self.label(name, &value, &id, "list")?;
-                prepared.push(ListRow {
+                let dependencies =
+                    self.list_row_dependencies(c, &doc.value, &value, &props, &visible)?;
+                let row = Arc::new(ListRow {
                     id,
                     label,
                     value,
                     display,
                     matches: Vec::new(),
                 });
+                prepared.by_path.insert(
+                    path.clone(),
+                    PreparedEntry {
+                        id: Some(row.id.clone()),
+                        row: Some(row.clone()),
+                        dependencies,
+                    },
+                );
+                prepared.rows.push(row);
+            }
+            for entry in prepared.by_path.values() {
+                for (target, id) in &entry.dependencies {
+                    if let Ok(path) = self.find_path(target, id) {
+                        prepared.path_ids.insert(path, id.clone());
+                    }
+                }
             }
             let prepared = Arc::new(prepared);
             let mut cache = self.read_cache.prepared.lock().unwrap();
-            cache.retain(|(old, k, _)| old == &signature && k != &prepared_key);
+            cache.retain(|(_, k, _)| k != &prepared_key);
             if cache.len() >= 16 {
                 cache.remove(0);
             }
             cache.push((signature.clone(), prepared_key, prepared.clone()));
             prepared
         };
-        let total = prepared.len();
+        if let Some((old_signature, old_rows)) = &previous
+            && old_rows.rows.len() == prepared.rows.len()
+            && old_rows
+                .rows
+                .iter()
+                .zip(&prepared.rows)
+                .all(|(old, new)| Arc::ptr_eq(old, new))
+        {
+            let cached_page = self
+                .read_cache
+                .lists
+                .lock()
+                .unwrap()
+                .iter()
+                .find(|(old, cached_key, _)| old == old_signature && cached_key == &key)
+                .map(|(_, _, page)| page.clone());
+            if let Some(page) = cached_page {
+                let mut cache = self.read_cache.lists.lock().unwrap();
+                cache.retain(|(_, cached_key, _)| cached_key != &key);
+                if cache.len() >= 16 {
+                    cache.remove(0);
+                }
+                cache.push((signature, key, page.clone()));
+                return Ok(page_slice(&page, request));
+            }
+        }
+        let total = prepared.rows.len();
         let mut facet_values: BTreeMap<String, BTreeMap<String, (String, usize)>> = BTreeMap::new();
-        for row in prepared.iter() {
+        for row in prepared.rows.iter() {
             let ListRow {
                 id,
                 label,
                 value,
                 display,
                 ..
-            } = row;
+            } = row.as_ref();
             for key in &facet_fields {
                 if let Some(v) = value.get(key) {
                     let raw = display_text(v);
@@ -300,13 +458,14 @@ impl Editor {
                     continue;
                 }
             }
-            let mut row = row.clone();
-            row.matches = matches;
-            rows.push(row);
+            rows.push(CachedMatch {
+                row: row.clone(),
+                matches,
+            });
         }
         rows.retain(|row| {
             request.filters.iter().all(|(key, expected)| {
-                let value = &row.value;
+                let value = &row.row.value;
                 if expected.is_empty() {
                     return true;
                 }
@@ -333,7 +492,8 @@ impl Editor {
                     && props[key].get("x-relation").is_none()
                     && props[key].get("enum").is_none();
                 if is_text {
-                    row.display
+                    row.row
+                        .display
                         .get(key)
                         .is_some_and(|s| s.to_lowercase().contains(&expected.to_lowercase()))
                 } else {
@@ -412,14 +572,14 @@ impl Editor {
             .then(a.id.cmp(&b.id))
         });
         let matched = rows.len();
-        let page = Arc::new(ListPage {
+        let page = Arc::new(CachedListPage {
             rows,
             total,
             matched,
             facets,
         });
         let mut cache = self.read_cache.lists.lock().unwrap();
-        cache.retain(|(old, k, _)| old == &signature && k != &key);
+        cache.retain(|(_, k, _)| k != &key);
         if cache.len() >= 16 {
             cache.remove(0);
         }
@@ -427,14 +587,113 @@ impl Editor {
         Ok(page_slice(&page, request))
     }
 }
-fn page_slice(page: &ListPage, request: &ListRequest) -> ListPage {
+pub(super) fn derived_relation_ids(
+    collection: &Collection,
+    value: &Value,
+) -> BTreeSet<(String, String)> {
+    let mut result = BTreeSet::new();
+    if let Some(properties) = collection.schema_value["properties"].as_object() {
+        for schema in properties.values() {
+            let Some(via) = schema.pointer("/x-derived/via").and_then(Value::as_str) else {
+                continue;
+            };
+            if let (Some(target), Some(id)) = (
+                properties
+                    .get(via)
+                    .and_then(|s| s.pointer("/x-relation/collection"))
+                    .and_then(Value::as_str),
+                value
+                    .get(via)
+                    .and_then(Value::as_str)
+                    .filter(|id| !id.is_empty()),
+            ) {
+                result.insert((target.into(), id.into()));
+            }
+        }
+    }
+    result
+}
+
+fn changed_record_ids(
+    editor: &Editor,
+    source: &str,
+    old: &read_cache::ListSignature,
+    current: &read_cache::ListSignature,
+    old_path_ids: &HashMap<PathBuf, String>,
+) -> Result<BTreeSet<(String, String)>> {
+    let mut changed = BTreeSet::new();
+    let names: BTreeSet<_> = std::iter::once(source.to_owned())
+        .chain(old.dependencies.keys().cloned())
+        .chain(current.dependencies.keys().cloned())
+        .collect();
+    for name in names {
+        let old_files = if name == source {
+            Some(&old.source)
+        } else {
+            old.dependencies.get(&name)
+        };
+        let new_files = if name == source {
+            Some(&current.source)
+        } else {
+            current.dependencies.get(&name)
+        };
+        let old_files: HashMap<_, _> = old_files
+            .into_iter()
+            .flatten()
+            .map(|(path, stamp)| (path, stamp))
+            .collect();
+        let new_files: HashMap<_, _> = new_files
+            .into_iter()
+            .flatten()
+            .map(|(path, stamp)| (path, stamp))
+            .collect();
+        let paths: BTreeSet<_> = old_files.keys().chain(new_files.keys()).copied().collect();
+        let collection = editor.config.collection(&name)?;
+        for path in paths {
+            let old_stamp = old_files.get(path).copied();
+            let new_stamp = new_files.get(path).copied();
+            if old_stamp == new_stamp {
+                continue;
+            }
+            if old_stamp.is_some_and(|stamp| stamp.is_some()) {
+                let id = old_path_ids.get(path).cloned().or_else(|| {
+                    matches!(collection.id, IdStrategy::Filename)
+                        .then(|| path.file_stem()?.to_str().map(str::to_owned))
+                        .flatten()
+                });
+                if let Some(id) = id {
+                    changed.insert((name.clone(), id));
+                }
+            }
+            if new_stamp.is_some_and(|stamp| stamp.is_some()) {
+                let id = if matches!(collection.id, IdStrategy::Filename) {
+                    path.file_stem()
+                        .and_then(|stem| stem.to_str())
+                        .map(str::to_owned)
+                } else {
+                    Some(editor.cached_document(&name, path)?.id.clone())
+                };
+                if let Some(id) = id {
+                    changed.insert((name.clone(), id));
+                }
+            }
+        }
+    }
+    Ok(changed)
+}
+
+fn page_slice(page: &CachedListPage, request: &ListRequest) -> ListPage {
     ListPage {
         rows: page
             .rows
             .iter()
             .skip(request.offset.min(page.matched))
             .take(request.limit.clamp(1, 200))
-            .cloned()
+            .map(|entry| {
+                let mut row = entry.row.as_ref().clone();
+                row.matches.clone_from(&entry.matches);
+                row
+            })
             .collect(),
         total: page.total,
         matched: page.matched,

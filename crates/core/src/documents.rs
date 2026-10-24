@@ -455,9 +455,9 @@ impl Editor {
         let mut ids = HashSet::new();
         let mut orders = HashMap::new();
         for path in self.files(collection)? {
-            let bytes = fs::read(&path)?;
-            let value = self.view_value(collection, &parse(c, &bytes)?)?;
-            let id = record_id(c, &path, &value)?;
+            let doc = self.cached_document(collection, &path)?;
+            let value = self.view_value(collection, &doc.value)?;
+            let id = doc.id.clone();
             if !ids.insert(id.clone()) {
                 return Err(Error::Data(format!("duplicate ID {id} in {collection}")));
             }
@@ -621,148 +621,176 @@ impl Editor {
     pub fn references_to(&self, collection: &str, id: &str) -> Result<Vec<Reference>> {
         self.config.collection(collection)?;
         safe_name(id)?;
-        let signature = self.reference_signature()?;
-        let cached = self
-            .read_cache
-            .references
-            .lock()
-            .unwrap()
-            .as_ref()
-            .filter(|(old, _)| old == &signature)
-            .map(|(_, index)| index.clone());
-        let index = if let Some(index) = cached {
-            index
-        } else {
-            let mut index: HashMap<(String, String), Vec<Reference>> = HashMap::new();
-            for (source_name, source) in &self.config.collections {
-                for file in self.files(source_name)? {
-                    let doc = self.cached_document(source_name, &file)?;
-                    let value = self.view_value(source_name, &doc.value)?;
-                    let source_id = record_id(source, &file, &value)?;
-                    visit_relations(
-                        &source.schema_value,
-                        &source.schema_value,
-                        &value,
-                        "",
-                        0,
-                        &mut |target, referenced_id, _allow_unresolved, path| {
-                            index
-                                .entry((target.to_owned(), referenced_id.to_owned()))
-                                .or_default()
-                                .push(Reference {
-                                    document: None,
-                                    collection: source_name.clone(),
-                                    record_id: source_id.clone(),
-                                    path: path.into(),
-                                });
-                            Ok(())
-                        },
-                    )?;
-                    visit_markdown_links(&value, "", &mut |destination, field_path| {
-                        if let Some((target, referenced_id)) = record_link_target(destination) {
-                            index
-                                .entry((target.to_owned(), referenced_id.to_owned()))
-                                .or_default()
-                                .push(Reference {
-                                    document: None,
-                                    collection: source_name.clone(),
-                                    record_id: source_id.clone(),
-                                    path: field_path.into(),
-                                });
-                        }
-                    });
-                }
+        let mut sources = BTreeMap::new();
+        for name in self.config.collections.keys() {
+            for path in self.files(name)? {
+                sources.insert(path, ReferenceSource::Record(name.clone()));
             }
-            for (name, mapping) in &self.config.documents {
-                for file in &mapping.files {
-                    let value = self.json_document(name, file)?.value;
-                    visit_relations(
-                        &mapping.schema,
-                        &mapping.schema,
-                        &value,
-                        "",
-                        0,
-                        &mut |target, referenced_id, _, path| {
-                            index
-                                .entry((target.to_owned(), referenced_id.to_owned()))
-                                .or_default()
-                                .push(Reference {
-                                    document: Some(name.clone()),
-                                    collection: String::new(),
-                                    record_id: file.clone(),
-                                    path: path.into(),
-                                });
-                            Ok(())
-                        },
-                    )?;
-                    visit_markdown_links(&value, "", &mut |destination, path| {
-                        if let Some((target, referenced_id)) = record_link_target(destination) {
-                            index
-                                .entry((target, referenced_id))
-                                .or_default()
-                                .push(Reference {
-                                    document: Some(name.clone()),
-                                    collection: String::new(),
-                                    record_id: file.clone(),
-                                    path: path.into(),
-                                });
-                        }
-                    });
-                }
+        }
+        for (name, mapping) in &self.config.documents {
+            for file in &mapping.files {
+                crate::contained(&self.config.root, file)?;
+                sources.insert(
+                    self.config.root.join(file),
+                    ReferenceSource::Document(name.clone()),
+                );
             }
-            if let Some(settings) = &self.config.settings {
-                if !self
-                    .config
-                    .documents
-                    .values()
-                    .any(|mapping| mapping.files.contains(&settings.path))
-                {
-                    let value = self.settings()?.value;
-                    let schema = self.settings_schema()?;
-                    visit_relations(
-                        schema,
-                        schema,
-                        &value,
-                        "",
-                        0,
-                        &mut |target, referenced_id, _, path| {
-                            index
-                                .entry((target.to_owned(), referenced_id.to_owned()))
-                                .or_default()
-                                .push(Reference {
-                                    document: Some(String::new()),
-                                    collection: String::new(),
-                                    record_id: settings.path.clone(),
-                                    path: path.into(),
-                                });
-                            Ok(())
-                        },
-                    )?;
-                    visit_markdown_links(&value, "", &mut |destination, path| {
-                        if let Some((target, referenced_id)) = record_link_target(destination) {
-                            index
-                                .entry((target, referenced_id))
-                                .or_default()
-                                .push(Reference {
-                                    document: Some(String::new()),
-                                    collection: String::new(),
-                                    record_id: settings.path.clone(),
-                                    path: path.into(),
-                                });
-                        }
-                    });
-                }
+        }
+        if let Some(settings) = &self.config.settings {
+            if !self
+                .config
+                .documents
+                .values()
+                .any(|mapping| mapping.files.contains(&settings.path))
+            {
+                crate::contained(&self.config.root, &settings.path)?;
+                sources.insert(
+                    self.config.root.join(&settings.path),
+                    ReferenceSource::Settings,
+                );
             }
-            let index = Arc::new(index);
-            *self.read_cache.references.lock().unwrap() = Some((signature, index.clone()));
-            index
-        };
-        let mut references = index
+        }
+        let mut stamps = BTreeMap::new();
+        for path in sources.keys() {
+            stamps.insert(path.clone(), read_cache::stamp(path)?);
+        }
+        let mut cache = self.read_cache.references.lock().unwrap();
+        let paths: BTreeSet<_> = cache.stamps.keys().chain(stamps.keys()).cloned().collect();
+        let changed_paths: BTreeSet<_> = paths
+            .into_iter()
+            .filter(|path| cache.stamps.get(path) != stamps.get(path))
+            .collect();
+        let mut changed_ids = BTreeSet::new();
+        for path in &changed_paths {
+            if let Some(old_id) = cache.file_ids.get(path) {
+                changed_ids.insert(old_id.clone());
+            }
+            if let Some(ReferenceSource::Record(name)) = sources.get(path) {
+                changed_ids.insert((name.clone(), self.cached_document(name, path)?.id.clone()));
+            }
+        }
+        let mut affected = changed_paths;
+        for (path, dependencies) in &cache.dependencies {
+            if !dependencies.is_disjoint(&changed_ids) {
+                affected.insert(path.clone());
+            }
+        }
+        for path in affected {
+            if let Some(source) = sources.get(&path) {
+                let (references, record_id, dependencies) =
+                    self.references_from_source(&path, source)?;
+                cache.replace(
+                    path.clone(),
+                    stamps[&path].clone(),
+                    references,
+                    record_id,
+                    dependencies,
+                );
+            } else {
+                cache.remove(&path);
+            }
+        }
+        let mut references = cache
+            .by_target
             .get(&(collection.to_owned(), id.to_owned()))
-            .cloned()
+            .map(|files| {
+                files
+                    .values()
+                    .flat_map(|refs| refs.iter().cloned())
+                    .collect()
+            })
             .unwrap_or_default();
         unique_references(&mut references);
         Ok(references)
+    }
+
+    fn references_from_source(
+        &self,
+        path: &Path,
+        source: &ReferenceSource,
+    ) -> Result<(
+        read_cache::ReferenceIndex,
+        Option<(String, String)>,
+        BTreeSet<(String, String)>,
+    )> {
+        let (schema, value, document, collection, record_id, dependencies) = match source {
+            ReferenceSource::Record(name) => {
+                let c = self.config.collection(name)?;
+                let doc = self.cached_document(name, path)?;
+                let dependencies = listing::derived_relation_ids(c, &doc.value);
+                (
+                    &c.schema_value,
+                    self.view_value(name, &doc.value)?,
+                    None,
+                    name.clone(),
+                    doc.id.clone(),
+                    dependencies,
+                )
+            }
+            ReferenceSource::Document(name) => {
+                let relative = path
+                    .strip_prefix(&self.config.root)
+                    .map_err(|e| Error::Data(e.to_string()))?
+                    .to_string_lossy()
+                    .to_string();
+                let mapping = self
+                    .config
+                    .documents
+                    .get(name)
+                    .ok_or_else(|| Error::Config(format!("unknown document {name}")))?;
+                (
+                    &mapping.schema,
+                    self.json_document(name, &relative)?.value,
+                    Some(name.clone()),
+                    String::new(),
+                    relative,
+                    BTreeSet::new(),
+                )
+            }
+            ReferenceSource::Settings => {
+                let relative = self
+                    .config
+                    .settings
+                    .as_ref()
+                    .ok_or_else(|| Error::Config("settings are not configured".into()))?
+                    .path
+                    .clone();
+                (
+                    self.settings_schema()?,
+                    self.settings()?.value,
+                    Some(String::new()),
+                    String::new(),
+                    relative,
+                    BTreeSet::new(),
+                )
+            }
+        };
+        let mut index: read_cache::ReferenceIndex = HashMap::new();
+        visit_relations(schema, schema, &value, "", 0, &mut |target, id, _, path| {
+            index
+                .entry((target.to_owned(), id.to_owned()))
+                .or_default()
+                .push(Reference {
+                    document: document.clone(),
+                    collection: collection.clone(),
+                    record_id: record_id.clone(),
+                    path: path.into(),
+                });
+            Ok(())
+        })?;
+        visit_markdown_links(&value, "", &mut |destination, path| {
+            if let Some((target, id)) = record_link_target(destination) {
+                index.entry((target, id)).or_default().push(Reference {
+                    document: document.clone(),
+                    collection: collection.clone(),
+                    record_id: record_id.clone(),
+                    path: path.into(),
+                });
+            }
+        });
+        let source_id =
+            matches!(source, ReferenceSource::Record(_)).then_some((collection, record_id));
+        Ok((index, source_id, dependencies))
     }
 
     pub fn media_references(&self, path: &str) -> Result<Vec<Reference>> {
